@@ -1,0 +1,88 @@
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
+
+export default function SignatureHeatWebsite() {
+  return (
+    <div className="min-h-screen bg-neutral-950 text-neutral-100">
+      {/* HERO */}
+      <section className="flex flex-col items-center justify-center text-center px-6 py-32">
+        <motion.h1
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-5xl md:text-6xl font-bold mb-6"
+        >
+          Signature Heat Apparel Ltd
+        </motion.h1>
+        <p className="text-lg md:text-xl text-neutral-400 max-w-2xl mb-8">
+          Premium heat-pressed streetwear. Built bold. Worn with confidence.
+        </p>
+        <div className="flex gap-4">
+          <Button className="rounded-2xl px-8">Shop Now</Button>
+          <Button variant="outline" className="rounded-2xl px-8">Contact Us</Button>
+        </div>
+      </section>
+
+      {/* ABOUT */}
+      <section className="px-6 py-24 max-w-6xl mx-auto">
+        <h2 className="text-3xl font-semibold mb-6">About Signature Heat</h2>
+        <p className="text-neutral-400 leading-relaxed max-w-3xl">
+          Signature Heat Apparel Ltd is a South African streetwear brand specialising in
+          high-quality heat-pressed apparel. We design and produce premium T-shirts,
+          hoodies, tracksuits, and custom pieces that blend street culture with modern fashion.
+        </p>
+      </section>
+
+      {/* SHOP */}
+      <section className="px-6 py-24 bg-neutral-900">
+        <h2 className="text-3xl font-semibold text-center mb-12">Shop Our Collection</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          [{name:"T-Shirts",price:"From R250"},{name:"Hoodies",price:"From R550"},{name:"Tracksuits",price:"From R950"}].map((item) => (
+            <Card key={item.name} className="rounded-2xl bg-neutral-950 border-neutral-800">
+              <CardContent className="p-6">
+                <div className="h-40 bg-neutral-800 rounded-xl mb-4 flex items-center justify-center text-neutral-500">Product Image</div>
+                <h3 className="text-xl font-medium mb-1">{item.name}</h3>
+                <p className="text-neutral-400 mb-2">{item.price}</p>
+                <Button className="w-full rounded-xl">Add to Cart</Button>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </section>
+
+      {/* CUSTOM PRINTING */}
+      <section className="px-6 py-24 max-w-6xl mx-auto">
+        <h2 className="text-3xl font-semibold mb-6">Custom Heat Printing</h2>
+        <p className="text-neutral-400 max-w-3xl mb-6">
+          We offer professional heat press printing for individuals and brands.
+          Bring your design or let us help you create one. Perfect for events,
+          promotions, and personal fashion.
+        </p>
+        <Button className="rounded-2xl px-8">Request a Quote</Button>
+      </section>
+
+      {/* SOCIAL */}
+      <section className="px-6 py-24 bg-neutral-900 text-center">
+        <h2 className="text-3xl font-semibold mb-6">Follow the Heat</h2>
+        <p className="text-neutral-400 mb-8">Connect with us on Instagram & TikTok</p>
+        <div className="flex justify-center gap-4">
+          <Button variant="outline">Instagram</Button>
+          <Button variant="outline">TikTok</Button>
+        </div>
+      </section>
+
+      {/* CONTACT */}
+      <section className="px-6 py-24 max-w-4xl mx-auto">
+        <h2 className="text-3xl font-semibold mb-6">Contact Us</h2>
+        <p className="text-neutral-400 mb-6">Email: info@signatureheat.co.za | WhatsApp: 0XX XXX XXXX</p>
+        <Button className="rounded-2xl px-8">Send Message</Button>
+      </section>
+
+      {/* FOOTER */}
+      <footer className="border-t border-neutral-800 px-6 py-8 text-center text-neutral-500">
+        © {new Date().getFullYear()} Signature Heat Apparel Ltd. All rights reserved.
+      </footer>
+    </div>
+  );
+}
